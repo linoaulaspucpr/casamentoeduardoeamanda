@@ -211,26 +211,38 @@
 
 
 
-
-    
-
-
           <!-- basic modal -->
       <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+        <div class="modal-dialog" style="height: 90% !important;">
+          <div class="modal-content" style="height: 100% !important;">
+            <div class="modal-header" style="background-color: #e7406c; color: white;">
+              <h4 class="modal-title" id="modal_titulo"></h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-family: none !important;">
+                <span aria-hidden="true" style="color: white !important; font-size: 2rem !important; text-shadow: none !important;">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <h3>Modal Body</h3>
+            <div class="modal-body" id="modal_corpo" style="height: 50% !important;">
+              
+              <div style="height: 50% !important; width: 100% !important; display: inline-block; text-align: center;">
+    
+                    <img id="modal_imagem" src="img/produtos/Ferro de passar roupa.jpg" style="width: 90%; height: 90%;" />
+           
+              </div>
+
+
+              <div style="width: 100%; height: 50%; padding: 20px; background-color: rgb(240, 240, 240); border-radius: 10px; margin-top: 10px;">
+                <h3>PIX: 07304867965</h3>
+                <h3>PIX: 07304867965</h3>
+              </div>
+
+
+
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <!--
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary">Presentear</button>
+              -->
             </div>
           </div>
         </div>
@@ -352,6 +364,7 @@
       ];
 
       var conteudo = "";
+      var cont = 0;
 
       produtos.forEach((item) => {
 
@@ -368,27 +381,35 @@
         conteudo += '</center>';
         conteudo += '</div>';
         
-        conteudo += '<div>';
-        conteudo += '<a href="#" class="btn botao-presentear" data-toggle="modal" data-target="#basicModal">Presentear</a>';
+        conteudo += '<div >';
+        conteudo += '<a href="#" id="'+cont+'" class="btn botao-presentear"  data-toggle="modal" data-target="#basicModal">Presentear</a>';
         //conteudo += `<div class="card-produtos-button" onclick="presentear('${item.imagem}', '${item.produto}', ${item.preco})">`;
         conteudo += '</div>';
         conteudo += '</div>';
+        cont++;
 
 
       });
 
+      
+
       $("#divProdutos").html("<center>"+conteudo+"</center>");
 
-      function presentear(imagem, produto, preco){
+      $(".botao-presentear").click(function(){
         
-          var array = [];
-          array.push(imagem);
-          array.push(produto);
-          array.push(preco);
-          window.localStorage.setItem("presente", JSON.stringify(array));
+        var id = $(this).attr("id");
+        //console.log(id);
+        //console.log(produtos[id]);
+        //console.log(produtos[id].produto);
+        $("#modal_titulo").html(produtos[id].produto);
+
+        $("#modal_imagem").attr("src", "img/produtos/" + produtos[id].imagem);
 
 
-      }
+
+      })
+
+     
 
 
       function getOffSet(){
