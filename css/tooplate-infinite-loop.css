@@ -6,6 +6,8 @@ https://www.tooplate.com/view/2117-infinite-loop
 
 */
 
+
+
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900");
 
 body {
@@ -29,6 +31,125 @@ a:focus {
 
 a:focus {
   outline: none;
+}
+
+
+.botao-presentear{
+  width: 100% !important;
+  height: 58px !important;
+  background-color: #e7406c !important;
+  color: white !important;
+  border-radius: 0px 0px 10px 10px;
+  padding-top: 13px;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+
+.botao-presentear:hover{
+  background-color: #af0a36 !important;
+}
+
+
+
+
+
+#toast {
+  visibility: hidden;
+  max-width: 50px;
+  height: 50px;
+  /*margin-left: -125px;*/
+  margin: auto;
+  background-color: rgb(34, 99, 72);
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+
+  position: fixed;
+  z-index: 1;
+  left: 0;right:0;
+  bottom: 30px;
+  font-size: 17px;
+  white-space: nowrap;
+}
+#toast #img{
+width: 50px;
+height: 50px;
+  
+  float: left;
+  
+  padding-top: 16px;
+  padding-bottom: 16px;
+  
+  box-sizing: border-box;
+
+  
+  background-color: rgb(10, 83, 55);
+  color: #fff;
+}
+#toast #desc{
+
+  
+  color: #fff;
+ 
+  padding: 16px;
+  
+  overflow: hidden;
+white-space: nowrap;
+}
+
+#toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+  from {min-width: 50px} 
+  to {min-width: 350px}
+}
+
+@keyframes expand {
+  from {min-width: 50px}
+  to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+  from {min-width: 350px} 
+  to {min-width: 350px}
+}
+
+@keyframes stay {
+  from {min-width: 350px}
+  to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+  from {min-width: 350px;} 
+  to {min-width: 50px;}
+}
+
+@keyframes shrink {
+  from {min-width: 350px;} 
+  to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 60px; opacity: 0;}
 }
 
 .btn {
@@ -115,6 +236,15 @@ blockquote {
 
 .tm-nav-link:hover {
   background-color: transparent;
+}
+
+.campoobrigatorio{
+  border: solid 2px red !important;
+}
+
+.obrigatorio{
+  display: none;
+  color: red !important;
 }
 
 
@@ -312,6 +442,10 @@ textarea{
   width: 50% !important;
 }
 
+#divProdutos{
+  padding-left: 200px;
+  padding-right: 200px;
+}
 
 @media (max-width: 500px) {
   #infinite {
@@ -323,6 +457,11 @@ textarea{
     width: 100%;
     top: 200px;
     background-position-y: 0px !important;
+  }
+
+  #divProdutos{
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   input{

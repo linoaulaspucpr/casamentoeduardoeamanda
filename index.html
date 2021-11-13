@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="css/tooplate-infinite-loop.css" />
 
 
-   
-
+    
 
   </head>
   <body style="height: 1000px;">    
@@ -106,6 +105,7 @@
       </div>
       <center>
       <div class="imagem">
+        <!--
         <center>
           <div class="button" onclick="window.location.href = '#';"  style="cursor: pointer; height: 50px; width: 200px; background-color: #e7406c !important; border-radius: 3px; display: inline-block; margin-left: 2px; margin-right: 2px; margin-bottom: 2px;">
             <div style="height: 100%; width: 50px;  float: left; display: table; margin-top: 0px;">
@@ -117,7 +117,7 @@
               <span style=" color: white; vertical-align: middle; display: table-cell; font-size: 14px; padding-right: 0px; font-weight: bold;">Mapa de Acesso</span>
             </div>
           </div>
-        </center>
+        </center>-->
 
         
       </div>
@@ -128,7 +128,7 @@
       
     </section>
     
-    <section id="testimonials" style="height: 800px; background-color: white;" >      
+    <div id="testimonials" style=" background-color: white;" >      
       <div class="titulo">
         <center>
           <label style="font-family: cream_cake !important; font-size: 60px; color: #e7406c;">Lista de Presentes</label><br><br>
@@ -138,7 +138,7 @@
       <div style="width: 100%; height: 100%;" id="divProdutos">
       
       </div>
-    </section>
+    </div>
     
     <section id="gallery" style="height: 1700px; padding: 30px;">
       <div class="titulo">
@@ -160,16 +160,20 @@
 
           <br><br>
 
+
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Nome Completo</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" >
+            <label for="nomecompleto" class="form-label">Nome Completo</label>
+            <input type="text" class="form-control" id="nomecompleto" >
+            <small class="form-text text-muted obrigatorio"><b>Campo obrigatório</b></small>
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Descreva abaixo os nomes dos convidados que vão com você</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+            <label for="descricao" class="form-label">Descreva abaixo os nomes dos convidados que vão com você</label>
+            <textarea class="form-control" id="descricao" rows="6"></textarea>
           </div>
 
-          <div class="button" onclick="window.location.href = 'certificado.php';"  style="cursor: pointer; height: 50px; width: 200px; background-color: #e7406c !important; border-radius: 3px; display: inline-block; margin-left: 2px; margin-right: 2px; margin-bottom: 2px;">
+          
+
+          <div class="button" onclick="confirmar()"  style="cursor: pointer; height: 50px; width: 200px; background-color: #e7406c !important; border-radius: 3px; display: inline-block; margin-left: 2px; margin-right: 2px; margin-bottom: 2px;">
             <div style="height: 100%; width: 50px;  float: left; display: table; margin-top: 0px;">
               <span style="vertical-align: middle; display: table-cell; ">
                 <img src="img/check.png" width="35" />
@@ -202,8 +206,40 @@
     </div>
 
     </section>
+
+    <div id="toast"><div id="img"><img src="img/check.png" width="20"/></div><div id="desc">Confirmado!</div></div>
+
+
+
+
     
-    <script src="js/jquery-1.9.1.min.js"></script>     
+
+
+          <!-- basic modal -->
+      <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h3>Modal Body</h3>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    
+    
+    <script src="js/jquery-3.3.1.js"></script>     
     <script src="slick/slick.min.js"></script>
     <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="js/easing.min.js"></script>
@@ -213,17 +249,106 @@
 
 
 
+
+
       var produtos = [
-        {
-          "produto": "Fritadeira Elétrica",
-          "preco": "300",
-          "imagem": "2.jpg"
+      {
+        "id": "0",
+        "produto": "Jogo de potes",
+        "preco": "50",
+        "imagem": "Potes.jpg"
         },
+      {
+        "id": "1",
+        "produto": "Ferro de Passar Roupa",
+        "preco": "100",
+        "imagem": "Ferro de passar roupa.jpg"
+      },
+      {
+        "id": "2",
+        "produto": "Sanduicheira",
+        "preco": "100",
+        "imagem": "Sanduicheira.jpg"
+      },
+      {
+        "id": "3",
+        "produto": "Faqueiro",
+        "preco": "200",
+        "imagem": "Talheres.jpg"
+      },
+      {
+        "id": "4",
+        "produto": "Jogo de cama",
+        "preco": "200",
+        "imagem": "jogo de cama.jpg"
+      },
+      {
+        "id": "5",
+        "produto": "Fritadeira Elétrica",
+        "preco": "300",
+        "imagem": "Fritadeira.jpg"
+        },
+      {
+        "id": "6",
+        "produto": "Aparelho de Jantar",
+        "preco": "300",
+        "imagem": "Aparelho de Jantar.jpg"
+      },
         {
-          "produto": "Ferro Elétrico",
-          "preco": "200",
-          "imagem": "3.jpg"
-        }
+        "id": "7",
+        "produto": "Microondas",
+        "preco": "400",
+        "imagem": "Microondas.jpg"
+      },
+      {
+        "id": "8",
+        "produto": "Voô de Balão",
+        "preco": "400",
+        "imagem": "Voo de Balao.jpg"
+      },
+        {
+        "id": "9",
+        "produto": "Lua de mel em Noronha",
+        "preco": "500",
+        "imagem": "Lua de mel em Noronha.jpg"
+      },
+        {
+        "id": "10",
+        "produto": "Jogo de panelas",
+        "preco": "500",
+        "imagem": "Panelas.jfif"
+      },
+      {
+        "id": "11",
+        "produto": "Secadora",
+        "preco": "600",
+        "imagem": "secadora.jpg"
+      },
+      {
+        "id": "12",
+        "produto": "TV",
+        "preco": "700",
+        "imagem": "TV.jpg"
+      },
+       {
+        "id": "13",
+        "produto": "Lava Louças",
+        "preco": "800",
+        "imagem": "Lava loucas.jpeg"
+      },
+      {
+        "id": "14",
+        "produto": "Máquina de lavar",
+        "preco": "900",
+        "imagem": "Maquina de lavar.jpg"
+      },
+        {
+        "id": "15",
+        "produto": "Viagem à Paris",
+        "preco": "1000",
+        "imagem": "Viagem para Paris.jpg"
+      }
+        
       ];
 
       var conteudo = "";
@@ -242,8 +367,10 @@
         conteudo += `<label class="preco"><span>R$&nbsp;</span>${item.preco},<span>&nbsp;00<span></label><br>`;
         conteudo += '</center>';
         conteudo += '</div>';
-        conteudo += '<div class="card-produtos-button">';
-        conteudo += 'Presentear';
+        
+        conteudo += '<div>';
+        conteudo += '<a href="#" class="btn botao-presentear" data-toggle="modal" data-target="#basicModal">Presentear</a>';
+        //conteudo += `<div class="card-produtos-button" onclick="presentear('${item.imagem}', '${item.produto}', ${item.preco})">`;
         conteudo += '</div>';
         conteudo += '</div>';
 
@@ -252,6 +379,16 @@
 
       $("#divProdutos").html("<center>"+conteudo+"</center>");
 
+      function presentear(imagem, produto, preco){
+        
+          var array = [];
+          array.push(imagem);
+          array.push(produto);
+          array.push(preco);
+          window.localStorage.setItem("presente", JSON.stringify(array));
+
+
+      }
 
 
       function getOffSet(){
@@ -438,7 +575,10 @@
       });
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="js/jquery-confirm.js"></script>
+
 
     <script>
 
@@ -452,14 +592,49 @@
       };
 
       // Initialize Firebase
-      const app = firebase.initializeApp(firebaseConfig);
+      firebase.initializeApp(firebaseConfig);
 
-      setTimeout(function(){
-        app.firestore().collection("confirmados").add({
-            "nome": "Eduardo Lino"
+      const database = firebase.firestore();
+
+
+
+      function confirmar(){
+
+        var nomecompleto = $("#nomecompleto").val();
+        var descricao = $("#descricao").val();
+        if(nomecompleto == "")
+        {
+          $("#nomecompleto").addClass("campoobrigatorio");
+          $(".obrigatorio").css("display", "block");
+        }
+        else
+        {
+          database.collection("confirmados").add({
+            "nome": nomecompleto,
+            "outros": descricao,
+            "data": new Date()
+          }).then(()=>{
+            $("#nomecompleto").removeClass("campoobrigatorio");
+            $(".obrigatorio").css("display", "none");
+            $("#nomecompleto").val("");
+            $("#descricao").val("");
+
+            var x = document.getElementById("toast");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
+
           });
-      }, 2000);
+        }
+
+        
+
+       
+      }
+
+
+
       
+
 
 
     </script>
