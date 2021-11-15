@@ -430,7 +430,7 @@ blockquote {
 }
 
 .mapa{
-  width: 60%;
+  width: 65%;
   height: 500px;
 }
 
@@ -460,9 +460,9 @@ textarea{
   }
 
   .video{
-    width:60%;
-    height:300px;
-  }
+  width:60%;
+  height:400px;
+}
 
   #divProdutos{
     padding-left: 5px;
@@ -570,15 +570,17 @@ textarea{
   height: 30px !important;
   color: #888 !important;
 }
-.card-produtos .card-produtos-texto .preco{
+.preco{
   font-size: 30px;
   margin: 0px;
   padding: 0px;
+  color: #333 !important;
 }
 
-.card-produtos .card-produtos-texto .preco span{
+.preco span{
   font-size: 12px;
   padding: 0px;
+  color: #333 !important;
 }
 
 .card-produtos .card-produtos-button{
