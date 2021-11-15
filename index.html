@@ -135,8 +135,8 @@
         </center>
       </div>
 
-      <div style="width: 100%; height: 100%;" id="divProdutos">
-      
+      <div style="width: 100%; height: 100%;" id="divPresentes" >
+
       </div>
     </div>
     
@@ -310,104 +310,135 @@
 
 
 
-      var produtos = [
-      {
-        "id": "0",
-        "produto": "Jogo de potes",
-        "preco": "50",
-        "imagem": "Potes.jpg"
-        },
+var produtos = [
       {
         "id": "1",
-        "produto": "Ferro de Passar Roupa",
+        "produto": "Lembrancinha",
+        "descricao": "Só para dizer que não te dei nada!",
         "preco": "100",
-        "imagem": "Ferro de passar roupa.jpg"
-      },
+        "imagem": "1.png"
+        },
       {
         "id": "2",
-        "produto": "Sanduicheira",
-        "preco": "100",
-        "imagem": "Sanduicheira.jpg"
+        "produto": "Café da manhã em Noronha",
+        "descricao": "Porque sem comida, nem saímos da cama",
+        "preco": "200",
+        "imagem": "2.jpeg"
       },
       {
         "id": "3",
-        "produto": "Faqueiro",
+        "produto": "Trilha em Noronha",
+        "descricao": "Também paga para fazer trilha, acredita?",
         "preco": "200",
-        "imagem": "Talheres.jpg"
+        "imagem": "3.jpeg"
       },
       {
         "id": "4",
-        "produto": "Jogo de cama",
-        "preco": "200",
-        "imagem": "jogo de cama.jpg"
+        "produto": "Almoço em Noronha",
+        "descricao": "Almoçar em Noronha é mais que uma calça para uma jovem",
+        "preco": "300",
+        "imagem": "4.jpeg"
       },
       {
         "id": "5",
-        "produto": "Fritadeira Elétrica",
+        "produto": "Água em Noronha",
+        "descricao": "Água lá vale mais que ouro, pode pesquisar!",
         "preco": "300",
-        "imagem": "Fritadeira.jpg"
-        },
+        "imagem": "5.jpeg"
+      },
       {
         "id": "6",
-        "produto": "Aparelho de Jantar",
-        "preco": "300",
-        "imagem": "Aparelho de Jantar.jpg"
-      },
-        {
-        "id": "7",
-        "produto": "Microondas",
+        "produto": "Jantar romântico em Noronha",
+        "descricao": "Pro casal se curtir um pouco!",
         "preco": "400",
-        "imagem": "Microondas.jpg"
+        "imagem": "6.jpeg"
+      },
+      {
+        "id": "7",
+        "produto": "Taxa de preservação ambiental",
+        "descricao": "Essa taxa diária é obrigatória e necessária",
+        "preco": "400",
+        "imagem": "7.jpeg"
       },
       {
         "id": "8",
-        "produto": "Voô de Balão",
-        "preco": "400",
-        "imagem": "Voo de Balao.jpg"
+        "produto": "Passeios por Noronha",
+        "descricao": "Não vamos ficar só na pousada esse tempo todo...",
+        "preco": "500",
+        "imagem": "8.jpeg"
       },
-        {
+      {
         "id": "9",
-        "produto": "Lua de mel em Noronha",
+        "produto": "Patrocínio da despedida dos noivos",
+        "descricao": "Muito importante!",
         "preco": "500",
-        "imagem": "Lua de mel em Noronha.jpg"
+        "imagem": "9.jpeg"
       },
-        {
+      {
         "id": "10",
-        "produto": "Jogo de panelas",
-        "preco": "500",
-        "imagem": "Panelas.jfif"
+        "produto": "Passeio de barco com os golfinhos",
+        "descricao": "Ué, nós gostamos de golfinhos",
+        "preco": "600",
+        "imagem": "10.webp"
       },
       {
         "id": "11",
-        "produto": "Secadora",
+        "produto": "Aluguel de Buggy",
+        "descricao": "O preço que ta a gasolina está atualmente...",
         "preco": "600",
-        "imagem": "secadora.jpg"
+        "imagem": "11.jpeg"
       },
       {
         "id": "12",
-        "produto": "TV",
+        "produto": "Mergulho em Noronha",
+        "descricao": "Não da para ir e não fazer um mergulho, né?",
         "preco": "700",
-        "imagem": "TV.jpg"
+        "imagem": "12.jpeg"
       },
-       {
+      {
         "id": "13",
-        "produto": "Lava Louças",
-        "preco": "800",
-        "imagem": "Lava loucas.jpeg"
+        "produto": "Hospedagem em Noronha",
+        "descricao": "Porque precisamos dormir em algum lugar, não?",
+        "preco": "700",
+        "imagem": "13.jpeg"
       },
       {
         "id": "14",
-        "produto": "Máquina de lavar",
-        "preco": "900",
-        "imagem": "Maquina de lavar.jpg"
+        "produto": "Bebidas",
+        "descricao": "Necessário para suportar a vida!",
+        "preco": "800",
+        "imagem": "14.jpeg"
       },
-        {
+      {
         "id": "15",
-        "produto": "Viagem à Paris",
+        "produto": 'Cota dos "amigos para sempre"',
+        "descricao": "Amigos para sempre, cadê vocês? Mas se não for, tudo bem!",
+        "preco": "800",
+        "imagem": "15.jpeg"
+      },
+      {
+        "id": "16",
+        "produto": "Patrocínio da aposentadoria dos noivos",
+        "descricao": "Do jeito que tá a previdência",
+        "preco": "900",
+        "imagem": "16.jpeg"
+      },
+      {
+        "id": "18",
+        "produto": "Ajuda na passagens para Noronha",
+        "descricao": "Oxe, mais caro que ir pra Nova Iorque e voltar :/",
+        "preco": "900",
+        "imagem": "17.jpeg"
+      },
+      {
+        "id": "18",
+        "produto": "Felicidade",
+        "descricao": "Ué, felicidade se compra?",
         "preco": "1000",
-        "imagem": "Viagem para Paris.jpg"
+        "imagem": "18.jpeg"
       }
-        
+      
+      
       ];
 
       var conteudo = "";
@@ -416,14 +447,14 @@
       produtos.forEach((item) => {
 
         
-
         conteudo += '<div class="card-produtos">';
         conteudo += '<div class="card-produtos-imagem">';
-        conteudo += `<img src="img/produtos/${item.imagem}" />`;
+        conteudo += `<img src="img/cotas/${item.imagem}" />`;
         conteudo += '</div>';
         conteudo += '<div class="card-produtos-texto">';
         conteudo += '<center>';
-        conteudo += '<label class="produto">'+item.produto+'</label><br>';
+        conteudo += '<div class="produto">'+item.produto+'</div><br>';
+        conteudo += '<div class="descricao">'+item.descricao+'</div><br>';
         conteudo += `<label class="preco"><span>R$&nbsp;</span>${item.preco},<span>&nbsp;00<span></label><br>`;
         conteudo += '</center>';
         conteudo += '</div>';
@@ -440,7 +471,7 @@
 
       
 
-      $("#divProdutos").html("<center>"+conteudo+"</center>");
+      $("#divPresentes").html("<center>"+conteudo+"</center>");
 
       $(".botao-presentear").click(function(){
         
@@ -450,7 +481,7 @@
         //console.log(produtos[id].produto);
         $("#modal_titulo").html(produtos[id].produto);
 
-        $("#modal_imagem").attr("src", "img/produtos/" + produtos[id].imagem);
+        $("#modal_imagem").attr("src", "img/cotas/" + produtos[id].imagem);
 
 
 
