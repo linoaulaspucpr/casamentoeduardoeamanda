@@ -459,6 +459,11 @@ textarea{
     background-position-y: 0px !important;
   }
 
+  .video{
+    width:60%;
+    height:300px;
+  }
+
   #divProdutos{
     padding-left: 5px;
     padding-right: 5px;
