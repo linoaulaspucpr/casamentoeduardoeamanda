@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Eduardo & Amanda</title>
+
+  </head>
+  <body style="height: 1000px;">    
+    
+    
+    <div id="divConfirmados"></div>
+
+    
+    
+    <script src="../js/jquery-3.3.1.js"></script>   
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="js/jquery-confirm.js"></script>
+
+
+    <script>
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBf9TISZdzxases-iGdeVDB_VUSq0aq-Cg",
+        authDomain: "casamento-cd22c.firebaseapp.com",
+        projectId: "casamento-cd22c",
+        storageBucket: "casamento-cd22c.appspot.com",
+        messagingSenderId: "785575065868",
+        appId: "1:785575065868:web:e0e56dc628eb85c7943129"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      const database = firebase.firestore();
+
+      var dados = [];
+      var dadosFinais = [];
+
+
+      database.collection("confirmados").get().then((snapshot)=>{
+   
+          snapshot.forEach(item => {
+            dados.push(item.data().data);
+          });
+
+          console.log("antes: "+ dados);
+
+          dados = bubbleSort(dados);
+
+          console.log("depois"+ dados);
+
+          database.collection("confirmados").get().then((snapshot)=>{
+            for(var i = 0; i < dados.length; i++) 
+            {
+                snapshot.forEach(valor => {
+                    
+                    if($.trim(valor.data().data) == $.trim(dados[i])){
+                        //console.log(valor.data().data + ":" + dados[i]);
+                        dadosFinais.push({data: valor.data().data, nome: valor.data().nome, acompanhantes: valor.data().outros});
+                    }
+                    
+                });
+            }
+
+
+            for(var i = dadosFinais.length-1; i >= 0; i--) 
+            {
+                if(dadosFinais[i].acompanhantes != "" && dadosFinais[i].acompanhantes != undefined){
+                    $("#divConfirmados").append("(" + i + ") &nbsp;" + dadosFinais[i].nome + " e " + dadosFinais[i].acompanhantes +"<br>");
+                }
+                else{
+                    $("#divConfirmados").append("(" + i + ") &nbsp;" + dadosFinais[i].nome+"<br>");
+                }
+                
+            }
+
+            
+
+                
+            });
+
+            
+      });
+
+
+      
+
+      
+
+    function bubbleSort(items) {
+        var length = items.length;  
+        for (var i = 0; i < length; i++) { 
+            for (var j = 0; j < (length - i - 1); j++) { 
+                    if(items[j] > items[j+1]) {
+                            var tmp = items[j]; 
+                    items[j] = items[j+1]; 
+                    items[j+1] = tmp; 
+                }
+            }        
+        }
+
+        return items;
+    }
+
+    
+
+
+    
+            
+
+
+    </script>
+
+
+
+  </body>
+</html>
